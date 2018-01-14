@@ -1,0 +1,16 @@
+code = int(input('Enter your Captcha: '))
+
+def parse_code(code, offset = 1):
+	str_code = str(code)
+	out = 0
+	for i, digit in enumerate(str_code):
+		if digit == str_code[(i+offset) % len(str_code)]:
+			out += int(digit)
+	return out
+
+answer_1_1 = parse_code(code)
+print(answer_1_1)
+
+offset = int(len(str(code))/2)
+answer_1_2 = parse_code(code, offset)
+print(answer_1_2)
